@@ -31,6 +31,7 @@ The goals / steps of this project are the following:
 [luminance-formula]: https://wikimedia.org/api/rest_v1/media/math/render/svg/f84d67895d0594a852efb4a5ac421bf45b7ed7a8
 [processed-image]: ./rst/output_18_2.png
 [augmented-images]: ./images/augmentation.png
+[augmented-dataset]: ./rst/output_15_0.png
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -99,7 +100,9 @@ Here is an example of an original image [first left] and augmented images:
 
 ![alt text][augmented-images]
 
-The difference between the original data set and the augmented data set is the following ... 
+The augmented dataset has approximately equal number of examples per label
+
+![alt text][augmented-dataset]
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
