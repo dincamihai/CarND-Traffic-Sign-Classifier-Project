@@ -95,7 +95,7 @@ To add more data to the the data set, I used the following techniques in combina
  - shift (including color)
  - gaussian filter
 
-Here is an example of an original image [first left] and an augmented images:
+Here is an example of an original image [first left] and augmented images:
 
 ![alt text][augmented-images]
 
