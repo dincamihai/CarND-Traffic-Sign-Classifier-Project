@@ -29,6 +29,7 @@ The goals / steps of this project are the following:
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 [image9]: ./rst/output_9_1.png "Distribution of training/validation/test sets"
 [luminance-formula]: https://wikimedia.org/api/rest_v1/media/math/render/svg/f84d67895d0594a852efb4a5ac421bf45b7ed7a8
+[processed-image]: https://raw.githubusercontent.com/dincamihai/CarND-Traffic-Sign-Classifier-Project/master/rst/output_18_2.png
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -79,17 +80,21 @@ I am converting the images to grayscale using this formula:
 ![alt_text][luminance-formula]
 that I found in [Grayscale - Wikipedia](https://en.wikipedia.org/wiki/Grayscale#Colorimetric_(perceptual_luminance-preserving)_conversion_to_grayscale)
 
-Here is an example of a traffic sign image before and after grayscaling.
+After converting to grayscale I normalize the image in order to help the optimizer during the training
 
-![alt text][image2]
+Here is an example of a traffic sign image original - luminance - normalized
 
-As a last step, I normalized the image data because ...
+![alt text][processed-image]
 
-I decided to generate additional data because ... 
+I decided to generate additional data because some labels had less examples than others and this would lead to poorer results for those labels.
 
-To add more data to the the data set, I used the following techniques because ... 
+To add more data to the the data set, I used the following techniques in combination (with random parameters on each pass):
 
-Here is an example of an original image and an augmented image:
+ - rotation
+ - shift (including color)
+ - gaussian filter
+
+Here is an example of an original image [first left] and an augmented images:
 
 ![alt text][image3]
 
