@@ -29,7 +29,8 @@ The goals / steps of this project are the following:
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 [image9]: ./rst/output_9_1.png "Distribution of training/validation/test sets"
 [luminance-formula]: https://wikimedia.org/api/rest_v1/media/math/render/svg/f84d67895d0594a852efb4a5ac421bf45b7ed7a8
-[processed-image]: https://raw.githubusercontent.com/dincamihai/CarND-Traffic-Sign-Classifier-Project/master/rst/output_18_2.png
+[processed-image]: ./rst/output_18_2.png
+[augmented-images]: ./images/augmentation.png
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -96,7 +97,7 @@ To add more data to the the data set, I used the following techniques in combina
 
 Here is an example of an original image [first left] and an augmented images:
 
-![alt text][image3]
+![alt text][augmented-images]
 
 The difference between the original data set and the augmented data set is the following ... 
 
