@@ -114,19 +114,33 @@ The augmented dataset has approximately equal number of examples per label
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
+| Layers                        | Description	      					                       | 
+|:-----------------------------:|:---------------------------------------------:| 
+| Input                         | 32x32x1 Grayscale image   							             | x
+| Convolution 5x5     	         | 1x1 stride, valid padding, outputs 28x28x6 	  | l1
+| RELU					                     |												                                   | l1a
+| Avg pooling	      	           | 2x2 stride, outputs 14x14x6 				              | p1
+| Convolution 5x5	              | 1x1 stride, valid padding, outputs 10x10x16   | l2
+| RELU                          |                                               | l2a
+| Avg pooling	                  | 2x2 stride, outputs 5x5x16 				               | p2
+| Avg pooling	                  | 2x2 stride, outputs 14x14x6 				              | p11
+| Avg pooling	                  | 2x2 stride, outputs 14x14x6 				              | p12
+| Fully connected layer         | 400                                           | fc1
+| RELU                          |                                               | fc1a
+| Dropout                       | keep_prob=0.5                                 | fc1drop
+| Fully connected layer         | 120                                           | fc2
+| RELU                          |                                               | fc2a
+| Dropout                       | keep_prob=0.5                                 | fc2drop
+| Logits                        | 43                                            | logits
+| Softmax                       |                                               |
 
+ 
+The layers are connected like this:
+
+````
+x ---- l1 - l1a - p1 ---- l2 - l2a - p2 ---- fc1 - fc1a - fc1drop ---- fc2 - fc2a - fc2drop ---- logits - softmax
+                     \----- p11 - p12 -----/
+````
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
