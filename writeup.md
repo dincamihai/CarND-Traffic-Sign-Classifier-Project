@@ -217,7 +217,7 @@ In my case, with 94% accuracy in the test set shows that there's still place for
 
 Here are five German traffic signs that I found in google street view on the streets in Germany:
 
-![alt text][upload1] ![alt text][upload3] ![alt text][upload4] 
+![alt text][upload8] ![alt text][upload3] ![alt text][upload10] 
 ![alt text][upload6] ![alt text][upload7]
 
 The first image might be difficult to classify because ...
