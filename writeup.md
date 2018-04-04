@@ -28,6 +28,12 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 [image9]: ./rst/output_9_1.png "Distribution of training/validation/test sets"
+[upload1]: ./upload/1.png "Traffic Sign 1"
+[upload3]: ./upload/1.png "Traffic Sign 3"
+[upload4]: ./upload/1.png "Traffic Sign 4"
+[upload6]: ./upload/1.png "Traffic Sign 6"
+[upload7]: ./upload/1.png "Traffic Sign 7"
+
 [luminance-formula]: https://wikimedia.org/api/rest_v1/media/math/render/svg/f84d67895d0594a852efb4a5ac421bf45b7ed7a8
 [processed-image]: ./rst/output_18_2.png
 [augmented-images]: ./images/augmentation.png
@@ -148,12 +154,17 @@ The architecture described above is inspired from [Traffic Sign Recognition with
 
 To train the model, I used an the "Adam" optimizer with the default parameters.
 I've trained the network 10 epochs at a time while keeping the parameters from the previous 10 epochs training.
-The learning rate, batch size and keep_prob were varied between the trainings as described below.
+The learning rate, batch size and keep_prob were varied between the trainings.
+In total, it was trained 40 epochs starting with higher learning rate, 0.006, and ending with 0.001. The batch size was also varied from 64 to 512.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-In total, it was trained 40 epochs starting with higher learning rate, 0.006, and ending with 0.001. The batch size was also varied from 64 to 512.
-In the end, the model predicted the training set with 0.994 accuracy and the validation set with 0.970 accuracy.
+By using the architecture from the paper mentioned above I already had good results. I've spent more time in finding a good way of generating the fake data. The parameters for rotation and shift are quite important because I've noticed that is even possible to generate fake data that would lead the network to have better accuracy on the validation set than the training set.
+This means that the training set is too "hard" to predict compared to normal data which indicates that the applied filters parameters are too high. (eg: too much rotation)
+
+The learning rate is also important and needs to be reduced when the accuracy oscilates.
+
+Adding the dropout layers helped when the network produced very good accuracy on the training set but much lower accuracy on the validation set.
 
 My final model results were:
 * training set accuracy of 0.994
@@ -162,25 +173,52 @@ My final model results were:
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
+
+At first I did not pass the output from the first convolution layer to the classifier. Adding this modification improved the accuracy by, as described in the paper mentioned above, it passes small details together with the more complex shapes and patterns from layer 2 to the classifier.
+
 * What were some problems with the initial architecture?
+
+Big difference between training and validation accuracy. Fixed with the dropout layers as described above.
+
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+
+My initial model suffered from overfitting.
+
 * Which parameters were tuned? How were they adjusted and why?
+
+I've tuned the learning rate. Higher learning rate speeded up the initial training.
+Lowering the learning rate and keeping the pretrained weights and biases helped in the following training sessions to increase the accuracy which was starting to oscilate.
+
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+
+The convolution layers help by being able to learn similar patterns in different positions in the image (by sharing the weights).
+The dropout layers help reducing the high variation problem (overfitting) and helps the model generalize better (perform better on images not seen before)
 
 If a well known architecture was chosen:
 * What architecture was chosen?
+
+The model architecture was inpired from [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) paper by Pierre Sermanet and Yann LeCun
+
 * Why did you believe it would be relevant to the traffic sign application?
+
+I've chose this architecture because it holds the record in identifying the traffic signs with 99.17% accuracy
+
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
+
+High training accuracy shows that the model is complex enough to fit the training data.
+Getting high accuracy on the validation data shows that the model is also able to generalize and predict new data and helps in the parameter tuning process.
+Once we are satisfied with the model's performance, before putting it in a production system, we can use the test set to make sure the model will continue to work well with new data.
+Getting high accuracy on the test set gives us the confidence that the model is ready for production.
+In my case, with 94% accuracy in the test set shows that there's still place for improvement. We might need more training data since the model was able to perform much better on the training set and the validation set.
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are five German traffic signs that I found in google street view on the streets in Germany:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][upload1] ![alt text][upload3] ![alt text][upload4] 
+![alt text][upload6] ![alt text][upload7]
 
 The first image might be difficult to classify because ...
 
