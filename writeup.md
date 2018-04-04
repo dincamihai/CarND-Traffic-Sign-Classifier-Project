@@ -29,10 +29,10 @@ The goals / steps of this project are the following:
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 [image9]: ./rst/output_9_1.png "Distribution of training/validation/test sets"
 [upload1]: ./upload/1.png "Traffic Sign 1"
-[upload3]: ./upload/1.png "Traffic Sign 3"
-[upload4]: ./upload/1.png "Traffic Sign 4"
-[upload6]: ./upload/1.png "Traffic Sign 6"
-[upload7]: ./upload/1.png "Traffic Sign 7"
+[upload3]: ./upload/3.png "Traffic Sign 3"
+[upload4]: ./upload/4.png "Traffic Sign 4"
+[upload6]: ./upload/6.png "Traffic Sign 6"
+[upload7]: ./upload/7.png "Traffic Sign 7"
 
 [luminance-formula]: https://wikimedia.org/api/rest_v1/media/math/render/svg/f84d67895d0594a852efb4a5ac421bf45b7ed7a8
 [processed-image]: ./rst/output_18_2.png
