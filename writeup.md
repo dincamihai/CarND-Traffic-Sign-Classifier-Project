@@ -28,9 +28,9 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 [image9]: ./rst/output_9_1.png "Distribution of training/validation/test sets"
-[upload1]: ./upload/1.png "Traffic Sign 1"
+[upload1]: ./upload/8.png "Traffic Sign 1"
 [upload3]: ./upload/3.png "Traffic Sign 3"
-[upload4]: ./upload/4.png "Traffic Sign 4"
+[upload4]: ./upload/10.png "Traffic Sign 4"
 [upload6]: ./upload/6.png "Traffic Sign 6"
 [upload7]: ./upload/7.png "Traffic Sign 7"
 
@@ -217,7 +217,7 @@ In my case, with 94% accuracy in the test set shows that there's still place for
 
 Here are five German traffic signs that I found in google street view on the streets in Germany:
 
-![alt text][upload8] ![alt text][upload3] ![alt text][upload10] 
+![alt text][upload1] ![alt text][upload3] ![alt text][upload4] 
 ![alt text][upload6] ![alt text][upload7]
 
 The first image might be difficult to classify because ...
