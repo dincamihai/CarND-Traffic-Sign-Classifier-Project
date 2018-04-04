@@ -115,7 +115,7 @@ The augmented dataset has approximately equal number of examples per label
 My final model consisted of the following layers:
 
 | Layers                        | Description	      					                       | Layer name |
-|:-----------------------------:|:---------------------------------------------:| : -------- |
+|:-----------------------------:|:---------------------------------------------:| :----------|
 | Input                         | 32x32x1 Grayscale image   							             | x          |
 | Convolution 5x5     	         | 1x1 stride, valid padding, outputs 28x28x6 	  | l1         |
 | RELU					                     |												                                   | l1a        |
