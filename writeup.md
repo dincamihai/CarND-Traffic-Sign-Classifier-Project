@@ -114,25 +114,25 @@ The augmented dataset has approximately equal number of examples per label
 
 My final model consisted of the following layers:
 
-| Layers                        | Description	      					                       | 
-|:-----------------------------:|:---------------------------------------------:| 
-| Input                         | 32x32x1 Grayscale image   							             | x
-| Convolution 5x5     	         | 1x1 stride, valid padding, outputs 28x28x6 	  | l1
-| RELU					                     |												                                   | l1a
-| Avg pooling	      	           | 2x2 stride, outputs 14x14x6 				              | p1
-| Convolution 5x5	              | 1x1 stride, valid padding, outputs 10x10x16   | l2
-| RELU                          |                                               | l2a
-| Avg pooling	                  | 2x2 stride, outputs 5x5x16 				               | p2
-| Avg pooling	                  | 2x2 stride, outputs 14x14x6 				              | p11
-| Avg pooling	                  | 2x2 stride, outputs 14x14x6 				              | p12
-| Fully connected layer         | 400                                           | fc1
-| RELU                          |                                               | fc1a
-| Dropout                       | keep_prob=0.5                                 | fc1drop
-| Fully connected layer         | 120                                           | fc2
-| RELU                          |                                               | fc2a
-| Dropout                       | keep_prob=0.5                                 | fc2drop
-| Logits                        | 43                                            | logits
-| Softmax                       |                                               |
+| Layers                        | Description	      					                       | Layer name |
+|:-----------------------------:|:---------------------------------------------:| : -------- |
+| Input                         | 32x32x1 Grayscale image   							             | x          |
+| Convolution 5x5     	         | 1x1 stride, valid padding, outputs 28x28x6 	  | l1         |
+| RELU					                     |												                                   | l1a        |
+| Avg pooling	      	           | 2x2 stride, outputs 14x14x6 				              | p1         |
+| Convolution 5x5	              | 1x1 stride, valid padding, outputs 10x10x16   | l2         |
+| RELU                          |                                               | l2a        |
+| Avg pooling	                  | 2x2 stride, outputs 5x5x16 				               | p2         |
+| Avg pooling	                  | 2x2 stride, outputs 14x14x6 				              | p11        |
+| Avg pooling	                  | 2x2 stride, outputs 14x14x6 				              | p12        |
+| Fully connected layer         | 400                                           | fc1        |
+| RELU                          |                                               | fc1a       |
+| Dropout                       | keep_prob=0.5                                 | fc1drop    |
+| Fully connected layer         | 120                                           | fc2        |
+| RELU                          |                                               | fc2a       |
+| Dropout                       | keep_prob=0.5                                 | fc2drop    |
+| Logits                        | 43                                            | logits     |
+| Softmax                       |                                               |            |
 
  
 The layers are connected like this:
