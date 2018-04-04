@@ -82,7 +82,7 @@ I am converting the images to grayscale using this formula:
 ![alt_text][luminance-formula]
 that I found in [Grayscale - Wikipedia](https://en.wikipedia.org/wiki/Grayscale#Colorimetric_(perceptual_luminance-preserving)_conversion_to_grayscale)
 
-After converting to grayscale I normalize the image in order to help the optimizer during the training
+After converting from 3 channels to 1 channel using the formula above, I normalize the image (mu=0, sigma=1) in order to help the optimizer during the training.
 
 Here is an example of a traffic sign image original - luminance - normalized
 
@@ -101,11 +101,11 @@ I've tried to use image processing techniques that would generate images from th
 For example, I have avoided operations like flipping or excessive rotation because the goal of the network is to identify road signs in their normal position and not in any unusual position.
 The augmentation could be improved by applying other types of noise, brightnes and/or contrast in random order.
 
-Here is an example of an original image [first left] and augmented images:
+Here is an example of an original image [first left] and augmented images generated from it:
 
 ![alt text][augmented-images]
 
-The augmented dataset has approximately equal number of examples per label
+The augmented dataset has approximately equal number of examples per label so the network will treat all labels as equally important.
 
 ![alt text][augmented-dataset]
 
@@ -146,14 +146,19 @@ The architecture described above is inspired from [Traffic Sign Recognition with
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I used an the "Adam" optimizer with the default parameters.
+I've trained the network 10 epochs at a time while keeping the parameters from the previous 10 epochs training.
+The learning rate, batch size and keep_prob were varied between the trainings as described below.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
+In total, it was trained 40 epochs starting with higher learning rate, 0.006, and ending with 0.001. The batch size was also varied from 64 to 512.
+In the end, the model predicted the training set with 0.994 accuracy and the validation set with 0.970 accuracy.
+
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.994
+* validation set accuracy of 0.970
+* test set accuracy of 0.94
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
