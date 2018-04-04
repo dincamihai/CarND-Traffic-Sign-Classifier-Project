@@ -142,6 +142,8 @@ x ---- l1 - l1a - p1 ---- l2 - l2a - p2 ---- fc1 - fc1a - fc1drop ---- fc2 - fc2
                      \----- p11 - p12 -----/
 ````
 
+The architecture described above is inspired from [Traffic Sign Recognition with Multi-Scale Convolutional Networks](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) paper by Pierre Sermanet and Yann LeCun
+
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I used an ....
