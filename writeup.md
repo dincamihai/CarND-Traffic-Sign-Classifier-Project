@@ -33,6 +33,15 @@ The goals / steps of this project are the following:
 [upload4]: ./upload/10.png "Traffic Sign 4"
 [upload6]: ./upload/6.png "Traffic Sign 6"
 [upload7]: ./upload/7.png "Traffic Sign 7"
+[prediction1]: ./rst/output_29_2.png                                            
+[prediction2]: ./rst/output_29_3.png                                            
+[prediction3]: ./rst/output_29_4.png                                            
+[prediction4]: ./rst/output_29_5.png                                            
+[prediction5]: ./rst/output_29_6.png                                            
+[prediction6]: ./rst/output_29_7.png                                            
+[prediction7]: ./rst/output_29_8.png                                            
+[prediction8]: ./rst/output_29_9.png                                            
+[prediction9]: ./rst/output_29_10.png
 
 [luminance-formula]: https://wikimedia.org/api/rest_v1/media/math/render/svg/f84d67895d0594a852efb4a5ac421bf45b7ed7a8
 [processed-image]: ./rst/output_18_2.png
@@ -220,19 +229,17 @@ Here are five German traffic signs that I found in google street view on the str
 ![alt text][upload1] ![alt text][upload3] ![alt text][upload4] 
 ![alt text][upload6] ![alt text][upload7]
 
-The first image might be difficult to classify because ...
+I've only used traffic signs from one of the 43 classes that the network was trained for. Of course, using other signs would not be predicted correctly because the network is not aware of them and would try to fit them in one of the knows classes.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+![alt_text][prediction1] ![alt_text][prediction2]
+![alt_text][prediction3] ![alt_text][prediction4]
+![alt_text][prediction5] ![alt_text][prediction6]
+![alt_text][prediction7] ![alt_text][prediction8]
+![alt_text][prediction9]
 
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
