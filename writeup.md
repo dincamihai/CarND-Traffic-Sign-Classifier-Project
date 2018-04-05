@@ -114,7 +114,8 @@ To add more data to the the data set, I used the following techniques in combina
 The goal was to obtain a dataset that has an approximately uniform distribution of examples per label.
 I've tried to use image processing techniques that would generate images from the same distribution of the original images.
 For example, I have avoided operations like flipping or excessive rotation because the goal of the network is to identify road signs in their normal position and not in any unusual position.
-The augmentation could be improved by applying other types of noise, brightnes and/or contrast in random order.
+The augmentation could be improved by adding more types of distorsions like noise, brightnes and/or contrast.
+The distorsions could be applied in random order to increase the variation.
 
 Here is an example of an original image [first left] and augmented images generated from it:
 
