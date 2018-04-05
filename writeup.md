@@ -256,7 +256,7 @@ Even for the 50km/h speed limit. Perhaps this is because this image is not horiz
 
 The top five softmax probabilities for all the images were:
 
-
+```
 | Probability | Sign name [label]                                  |
 |------------------------------------------------------------------|
 | 0.688       | Speed limit (80km/h) [5]                           |
@@ -337,6 +337,7 @@ The top five softmax probabilities for all the images were:
 | 0.000       | Speed limit (30km/h) [1]                           |
 | 0.000       | Speed limit (20km/h) [0]                           |
 |------------------------------------------------------------------|
+```
 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
