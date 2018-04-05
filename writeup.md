@@ -247,20 +247,97 @@ The model was able to correctly identify all the images which means 100% accurac
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 76th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is relatively sure that this is a 80km/h speed limit sign (probability of 0.69), and the prediction is correct. All top five predictions for the first image are for signs from the same class (th "speed limit" class) because they actually look similar.
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+For the rest of the images the network is 100% confident about the prediction.
+Even for the 50km/h speed limit. Perhaps this is because this image is not horizontally squashed like the 80km/h image (which brings the 8 closer to the 0 and makes it harder to identify)
+
+The top five softmax probabilities for all the images were:
 
 
-For the second image ... 
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 0.688       | Speed limit (80km/h) [5]                           |
+| 0.211       | Speed limit (50km/h) [2]                           |
+| 0.076       | Speed limit (100km/h) [7]                          |
+| 0.010       | Speed limit (70km/h) [4]                           |
+| 0.010       | Speed limit (30km/h) [1]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Priority road [12]                                 |
+| 0.000       | Roundabout mandatory [40]                          |
+| 0.000       | Speed limit (50km/h) [2]                           |
+| 0.000       | Speed limit (30km/h) [1]                           |
+| 0.000       | Speed limit (20km/h) [0]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Speed limit (50km/h) [2]                           |
+| 0.000       | Speed limit (30km/h) [1]                           |
+| 0.000       | Speed limit (80km/h) [5]                           |
+| 0.000       | Speed limit (100km/h) [7]                          |
+| 0.000       | Keep right [38]                                    |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Children crossing [28]                             |
+| 0.000       | Bicycles crossing [29]                             |
+| 0.000       | Pedestrians [27]                                   |
+| 0.000       | Right-of-way at the next intersection [11]         |
+| 0.000       | Speed limit (60km/h) [3]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Keep right [38]                                    |
+| 0.000       | Priority road [12]                                 |
+| 0.000       | Roundabout mandatory [40]                          |
+| 0.000       | Yield [13]                                         |
+| 0.000       | Speed limit (50km/h) [2]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | No entry [17]                                      |
+| 0.000       | Stop [14]                                          |
+| 0.000       | No passing for vehicles over 3.5 metric tons [10]  |
+| 0.000       | Speed limit (100km/h) [7]                          |
+| 0.000       | Turn right ahead [33]                              |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Go straight or right [36]                          |
+| 0.000       | Ahead only [35]                                    |
+| 0.000       | Children crossing [28]                             |
+| 0.000       | Turn left ahead [34]                               |
+| 0.000       | Speed limit (60km/h) [3]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Road work [25]                                     |
+| 0.000       | Bumpy road [22]                                    |
+| 0.000       | Keep left [39]                                     |
+| 0.000       | Dangerous curve to the right [20]                  |
+| 0.000       | Priority road [12]                                 |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | No entry [17]                                      |
+| 0.000       | Speed limit (60km/h) [3]                           |
+| 0.000       | Speed limit (50km/h) [2]                           |
+| 0.000       | Speed limit (30km/h) [1]                           |
+| 0.000       | Speed limit (20km/h) [0]                           |
+|------------------------------------------------------------------|
+
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
