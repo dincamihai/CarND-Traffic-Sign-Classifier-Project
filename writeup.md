@@ -188,16 +188,21 @@ At first I did not pass the output from the first convolution layer to the class
 
 * What were some problems with the initial architecture?
 
+The network was not able to fit the training data well.
 Big difference between training and validation accuracy. Fixed with the dropout layers as described above.
 
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 
-My initial model suffered from overfitting.
+The initial model was not able to fit the data so I increased the number of fully connected layers in the classifier and introduced the architecture change that allowed passing `l1` output to the classifier.
+The next problem was overfitting. Adding dropout layers helped in this regard.
 
 * Which parameters were tuned? How were they adjusted and why?
 
 I've tuned the learning rate. Higher learning rate speeded up the initial training.
 Lowering the learning rate and keeping the pretrained weights and biases helped in the following training sessions to increase the accuracy which was starting to oscilate.
+I've also tuned the keep_prob for the dropout layers and the batch size.
+I've also treated the fake data generation as a parameter tuning process.
+The number of epochs was also tuned.
 
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
 
