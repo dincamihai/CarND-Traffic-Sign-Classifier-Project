@@ -342,3 +342,8 @@ The top five softmax probabilities for all the images were:
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+
+In the notebook I'm printing out the feature map from the first convolutional layer (l1).
+It seems that this layer is interested in changes in contrast (edges)
+
+Convolutional layer 2 did not produce any output that a human would easily understand.
