@@ -16433,7 +16433,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Print out the top five softmax probabilities for the predictions on the German traffic sign images found on the web. </span>
@@ -16449,7 +16449,17 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
             <span class="n">keep_prob</span><span class="p">:</span> <span class="mi">1</span>
         <span class="p">}</span>
     <span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">top_5</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">probs</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">top_5</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">top_5</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;| </span><span class="si">{:&lt;11}</span><span class="s2"> | </span><span class="si">{:&lt;50}</span><span class="s2"> |&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Probability&quot;</span><span class="p">,</span> <span class="s2">&quot;Sign name [label]&quot;</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|</span><span class="si">{:-&lt;66}</span><span class="s1">|&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">labels</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="n">pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prob</span><span class="p">),</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> [</span><span class="si">{}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">classes</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">)],</span> <span class="n">label</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;|</span><span class="si">{:-&lt;66}</span><span class="s1">|</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -16466,32 +16476,87 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>TopKV2(values=array([[  6.87676132e-01,   2.10952908e-01,   7.58104622e-02,
-          1.04209697e-02,   1.01402104e-02],
-       [  1.00000000e+00,   1.82431426e-37,   0.00000000e+00,
-          0.00000000e+00,   0.00000000e+00],
-       [  1.00000000e+00,   8.95169269e-12,   7.19129237e-13,
-          1.69837213e-16,   1.56512035e-17],
-       [  9.99999881e-01,   1.49847182e-07,   1.35773470e-09,
-          5.85081594e-10,   2.28483968e-11],
-       [  1.00000000e+00,   4.32242277e-33,   1.61123125e-35,
-          8.59966025e-36,   1.49809400e-38],
-       [  1.00000000e+00,   2.66438307e-23,   6.65507963e-33,
-          8.95418863e-34,   4.28093519e-35],
-       [  1.00000000e+00,   7.50307140e-22,   4.23415027e-25,
-          1.87499763e-25,   6.69344657e-26],
-       [  1.00000000e+00,   2.19130004e-25,   8.29570475e-30,
-          5.85260676e-31,   2.15622621e-31],
-       [  1.00000000e+00,   0.00000000e+00,   0.00000000e+00,
-          0.00000000e+00,   0.00000000e+00]], dtype=float32), indices=array([[ 5,  2,  7,  4,  1],
-       [12, 40,  0,  1,  2],
-       [ 2,  1,  5,  7, 38],
-       [28, 29, 27, 11,  3],
-       [38, 12, 40, 13,  2],
-       [17, 14, 10,  7, 33],
-       [36, 35, 28, 34,  3],
-       [25, 22, 39, 20, 12],
-       [17,  0,  1,  2,  3]], dtype=int32))
+<pre>| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 0.688       | Speed limit (80km/h) [5]                           |
+| 0.211       | Speed limit (50km/h) [2]                           |
+| 0.076       | Speed limit (100km/h) [7]                          |
+| 0.010       | Speed limit (70km/h) [4]                           |
+| 0.010       | Speed limit (30km/h) [1]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Priority road [12]                                 |
+| 0.000       | Roundabout mandatory [40]                          |
+| 0.000       | Speed limit (50km/h) [2]                           |
+| 0.000       | Speed limit (30km/h) [1]                           |
+| 0.000       | Speed limit (20km/h) [0]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Speed limit (50km/h) [2]                           |
+| 0.000       | Speed limit (30km/h) [1]                           |
+| 0.000       | Speed limit (80km/h) [5]                           |
+| 0.000       | Speed limit (100km/h) [7]                          |
+| 0.000       | Keep right [38]                                    |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Children crossing [28]                             |
+| 0.000       | Bicycles crossing [29]                             |
+| 0.000       | Pedestrians [27]                                   |
+| 0.000       | Right-of-way at the next intersection [11]         |
+| 0.000       | Speed limit (60km/h) [3]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Keep right [38]                                    |
+| 0.000       | Priority road [12]                                 |
+| 0.000       | Roundabout mandatory [40]                          |
+| 0.000       | Yield [13]                                         |
+| 0.000       | Speed limit (50km/h) [2]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | No entry [17]                                      |
+| 0.000       | Stop [14]                                          |
+| 0.000       | No passing for vehicles over 3.5 metric tons [10]  |
+| 0.000       | Speed limit (100km/h) [7]                          |
+| 0.000       | Turn right ahead [33]                              |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Go straight or right [36]                          |
+| 0.000       | Ahead only [35]                                    |
+| 0.000       | Children crossing [28]                             |
+| 0.000       | Turn left ahead [34]                               |
+| 0.000       | Speed limit (60km/h) [3]                           |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | Road work [25]                                     |
+| 0.000       | Bumpy road [22]                                    |
+| 0.000       | Keep left [39]                                     |
+| 0.000       | Dangerous curve to the right [20]                  |
+| 0.000       | Priority road [12]                                 |
+|------------------------------------------------------------------|
+
+| Probability | Sign name [label]                                  |
+|------------------------------------------------------------------|
+| 1.000       | No entry [17]                                      |
+| 0.000       | Speed limit (60km/h) [3]                           |
+| 0.000       | Speed limit (50km/h) [2]                           |
+| 0.000       | Speed limit (30km/h) [1]                           |
+| 0.000       | Speed limit (20km/h) [0]                           |
+|------------------------------------------------------------------|
+
 </pre>
 </div>
 </div>
